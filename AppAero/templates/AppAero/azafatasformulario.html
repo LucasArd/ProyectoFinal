@@ -7,6 +7,19 @@
 <li class="nav-item"><a class="nav-link" href="boletosformulario">Boletos</a></li>
 {% endblock %}
 {% block modificable %}
-<h1 class="mx-auto my-0 text-uppercase">INFO AEROLINEA</h1>
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Administrador de informacion de pasajeros, azafatas, pilotos y boletos</h2>
+<h1 class="mx-auto my-0 text-uppercase"> AZAFATAS </h1>
+<h2 class="text-white-50 mx-auto mt-2 mb-5">Administrador de informacion de azafatas</h2>
+
+<form action="{% url 'azafatasformulario' %}"  method="POST"> {% csrf_token %}
+    <h3> Ingrese datos de la azafata </h3>
+
+    <table>
+
+        {{ miFormulario.as_table }}
+    
+    </table>
+
+    <input type = "submit" value="Enviar Formulario">
+
+</form>
 {% endblock %}

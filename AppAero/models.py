@@ -1,13 +1,13 @@
 from django.db import models
 
-class pasajero(models.Model):
+class Pasajero(models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20)
     
     def __str__(self) -> str:
         return self.nombre + ' ' + self.apellido
 
-class azafatas(models.Model):
+class Azafatas(models.Model):
     nombre= models.CharField(max_length=20)
     apellido= models.CharField(max_length=20)
     legajo = models.IntegerField()
@@ -15,14 +15,14 @@ class azafatas(models.Model):
         return self.nombre + ' ' + self.apellido + ' ' + str(self.legajo)
 
 
-class piloto(models.Model):
+class Piloto(models.Model):
     nombre= models.CharField(max_length=20)
     apellido= models.CharField(max_length=20)
     horasDeVuelo = models.IntegerField()
     def __str__(self) -> str:
         return self.nombre + ' ' + self.apellido + ' ' + str(self.horasDeVuelo)
 
-class boleto(models.Model):
+class Boleto(models.Model):
     nombre= models.CharField(max_length=20)
     apellido= models.CharField(max_length=20)
     numeroDeVuelo = models.IntegerField()
