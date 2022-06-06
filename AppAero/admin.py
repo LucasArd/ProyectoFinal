@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.register(pasajero)
+admin.site.register(azafatas)
+admin.site.register(piloto)
+admin.site.register(boleto)
