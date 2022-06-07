@@ -8,18 +8,6 @@ from AppAero.forms import  Pasajerosformulario, Pilotosformulario, Boletosformul
 def inicio (request):
     return render(request, "AppAero/inicio.html")
 
-def pasajero (request):
-    return render(request, "AppAero/pasajeros.html")
-
-def azafatas (request):
-    return render(request, "AppAero/azafatas.html")
-
-def piloto (request):
-    return render(request, "AppAero/pilotos.html")
-
-def boleto (request):
-    return render(request, "AppAero/boletos.html")
-
 def PasajerosFormulario (request):
     if request.method == 'POST':
 
@@ -39,7 +27,7 @@ def PasajerosFormulario (request):
             return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Pasajerosformulario()
-    return render(request, "AppAero/pasajeros.html", {"miFormulario":miFormulario})
+    return render(request, "AppAero/pasajerosformulario.html", {"miFormulario":miFormulario})
 
 def AzafatasFormulario (request):
     if request.method == 'POST':
@@ -61,7 +49,7 @@ def AzafatasFormulario (request):
             return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Azafatasformulario()
-    return render(request, "AppAero/azafatas.html", {"miFormulario":miFormulario})
+    return render(request, "AppAero/azafatasformulario.html", {"miFormulario":miFormulario})
 
 def BoletosFormulario (request):
     if request.method == 'POST':
@@ -83,7 +71,7 @@ def BoletosFormulario (request):
             return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Boletosformulario()
-    return render(request, "AppAero/boletos.html", {"miFormulario":miFormulario})
+    return render(request, "AppAero/boletosformulario.html", {"miFormulario":miFormulario})
 
 def PilotosFormulario (request):
     if request.method == 'POST':
@@ -105,4 +93,20 @@ def PilotosFormulario (request):
             return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Pilotosformulario()
-    return render(request, "AppAero/pilotos.html", {"miFormulario":miFormulario})
+    return render(request, "AppAero/pilotosformulario.html", {"miFormulario":miFormulario})
+
+
+def Buscar (request):
+    if request.GET['apellido']:
+        apellido = request.GET['apellido']
+        pasajeros = Pasajero.objects.filter(apellido__icontains=apellido)
+        pilotos = Piloto.objects.filter(apellido__icontains=apellido)
+        azafatas = Azafatas.objects.filter(apellido__icontains=apellido)
+
+        return render(request, "AppAero/resultadosbusqueda.html", {"apellido":apellido, "pasajeros":pasajeros, "pilotos":pilotos, "azafatas":azafatas})
+    else:
+        respuesta = "Los datos no fueron enviados correctamente."
+    return HttpResponse(respuesta)
+
+def BusquedaApellido (request):
+    return render(request, "AppAero/busquedaApellido.html")

@@ -5,7 +5,7 @@ class Pasajero(models.Model):
     apellido = models.CharField(max_length=20)
     
     def __str__(self) -> str:
-        return self.nombre + ' ' + str(self.apellido)
+        return self.nombre + ' ' + self.apellido
 
 class Azafatas(models.Model):
     nombre= models.CharField(max_length=20)

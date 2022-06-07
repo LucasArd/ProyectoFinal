@@ -5,21 +5,17 @@
 <li class="nav-item"><a class="nav-link" href="azafatasformulario">Azafatas</a></li>
 <li class="nav-item"><a class="nav-link" href="pilotosformulario">Pilotos</a></li>
 <li class="nav-item"><a class="nav-link" href="boletosformulario">Boletos</a></li>
+<li class="nav-item"><a class="nav-link" href="busquedaapellido">Busqueda</a></li>
 {% endblock %}
 {% block modificable %}
-<h1 class="mx-auto my-0 text-uppercase">BOLETOS</h1>
-<h2 class="text-white-50 mx-auto mt-2 mb-5">Administrador de informacion de los boletos de vuelo</h2>
+<h1 class="mx-auto my-0 text-uppercase">Busqueda de pasajeros y personal</h1>
 
-<form action="{% url 'boletosformulario' %}"  method="POST"> {% csrf_token %}
-    <h3> Ingrese datos del boleto </h3>
+<form action="{% url 'buscar' %}"  method="GET">
+    <h3> Ingrese el apellido de la persona que busca: </h3>
 
-    <table>
+    <input type="text" name="apellido" id="apellido">
 
-        {{ miFormulario.as_table }}
-    
-    </table>
-
-    <input type = "submit" value="Enviar Formulario">
+    <input type="submit" value="Buscar">
 
 </form>
 {% endblock %}
