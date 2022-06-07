@@ -29,14 +29,14 @@ def PasajerosFormulario (request):
 
             informacion = miFormulario.cleaned_data
 
-        nombre= informacion['nombre']
-        apellido= informacion['apellido']
+            nombre= informacion['nombre']
+            apellido= informacion['apellido']
 
-        pasajero = Pasajero(nombre = nombre, apellido= apellido)
+            pasajero = Pasajero(nombre = nombre, apellido= apellido)
 
-        pasajero.save()
+            pasajero.save()
 
-        return render(request, "AppAero/inicio.html")
+            return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Pasajerosformulario()
     return render(request, "AppAero/pasajeros.html", {"miFormulario":miFormulario})
@@ -50,15 +50,15 @@ def AzafatasFormulario (request):
 
             informacion = miFormulario.cleaned_data
 
-        nombre= informacion['nombre']
-        apellido= informacion['apellido']
-        legajo = informacion['legajo']
+            nombre= informacion['nombre']
+            apellido= informacion['apellido']
+            legajo = informacion['legajo']
 
-        azafata = Azafatas(nombre = nombre, apellido= apellido, legajo= legajo)
+            azafata = Azafatas(nombre = nombre, apellido= apellido, legajo= legajo)
 
-        azafata.save()
+            azafata.save()
 
-        return render(request, "AppAero/inicio.html")
+            return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Azafatasformulario()
     return render(request, "AppAero/azafatas.html", {"miFormulario":miFormulario})
@@ -72,15 +72,15 @@ def BoletosFormulario (request):
 
             informacion = miFormulario.cleaned_data
 
-        nombre= informacion['nombre']
-        apellido= informacion['apellido']
-        numeroDeVuelo = informacion['numeroDeVuelo']
+            nombre= informacion['nombre']
+            apellido= informacion['apellido']
+            numeroDeVuelo = informacion['numeroDeVuelo']
 
-        boletos = Boleto(nombre = nombre, apellido= apellido, numeroDeVuelo = numeroDeVuelo)
+            boletos = Boleto(nombre = nombre, apellido= apellido, numeroDeVuelo = numeroDeVuelo)
 
-        boletos.save()
+            boletos.save()
 
-        return render(request, "AppAero/inicio.html")
+            return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Boletosformulario()
     return render(request, "AppAero/boletos.html", {"miFormulario":miFormulario})
@@ -94,15 +94,15 @@ def PilotosFormulario (request):
 
             informacion = miFormulario.cleaned_data
 
-        nombre= informacion['nombre']
-        apellido= informacion['apellido']
-        horasDeVuelo = informacion['horasDeVuelo']
+            nombre= informacion['nombre']
+            apellido= informacion['apellido']
+            horasDeVuelo = informacion['horasDeVuelo']
 
-        piloto = Piloto(nombre = nombre, apellido= apellido, horasDeVuelo = horasDeVuelo)
+            piloto = Piloto(nombre = nombre, apellido= apellido, horasDeVuelo = horasDeVuelo)
 
-        piloto.save()
+            piloto.save()
 
-        return render(request, "AppAero/inicio.html")
+            return render(request, "AppAero/inicio.html")
     else:
         miFormulario = Pilotosformulario()
     return render(request, "AppAero/pilotos.html", {"miFormulario":miFormulario})
