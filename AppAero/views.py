@@ -25,9 +25,9 @@ def PasajerosFormulario (request):
 
         miFormulario = Pasajerosformulario(request.POST)
 
-        if miFormulario.is_valid:
+        if miFormulario.is_valid():
 
-            informacion = miFormulario
+            informacion = miFormulario.cleaned_data
 
         nombre= informacion['nombre']
         apellido= informacion['apellido']
@@ -46,7 +46,9 @@ def AzafatasFormulario (request):
 
         miFormulario = Azafatasformulario(request.POST)
 
-        informacion = miFormulario
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
 
         nombre= informacion['nombre']
         apellido= informacion['apellido']
@@ -66,7 +68,9 @@ def BoletosFormulario (request):
 
         miFormulario = Boletosformulario(request.POST)
 
-        informacion = miFormulario
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
 
         nombre= informacion['nombre']
         apellido= informacion['apellido']
@@ -86,7 +90,9 @@ def PilotosFormulario (request):
 
         miFormulario = Pilotosformulario(request.POST)
 
-        informacion = miFormulario
+        if miFormulario.is_valid():
+
+            informacion = miFormulario.cleaned_data
 
         nombre= informacion['nombre']
         apellido= informacion['apellido']
